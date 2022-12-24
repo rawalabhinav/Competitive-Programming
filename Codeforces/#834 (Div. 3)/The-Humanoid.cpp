@@ -21,7 +21,7 @@ void solve(){
 		int i, health = h;
 		
 		for(i = 0; i < n; ++i){
-			if (health > a[i]) health += a[i] / 2;
+			if (health > a[i]) 	   health += a[i] / 2;
 			
 			else if (v.size()){
 				health *= v.back(); v.pop_back(); --i;

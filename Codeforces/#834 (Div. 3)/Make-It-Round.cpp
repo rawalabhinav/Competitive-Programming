@@ -43,8 +43,13 @@ void solve(){
     	
     }
     
+<<<<<<< HEAD
     for(int& e: a) cout << e << ' ';
     cout << '\n';   
+=======
+    for(int &e: a) cout << e << ' ';
+	cout << '\n';   
+>>>>>>> da41d33 (Complete)
 }
 
 signed main(){

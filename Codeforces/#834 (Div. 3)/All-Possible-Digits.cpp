@@ -24,7 +24,6 @@ int solve(){
     if (n < 2) return p - 1 - (a[0] == 2);
     int j = n - 2, put = 0;
     
-
     for(int i = n - 2; i > -1; --i, --j){   
         if (a[i] == p - 1) continue;
 
@@ -38,7 +37,11 @@ int solve(){
     if (j < 0){
         put += (!s.count(1)); s.insert(1); 
     }   
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> da41d33 (Complete)
     for(int i = a[n - 1] - 1; i > -1; --i){
         if (!s.count(i)) return p - a[n - 1] + i;
     }

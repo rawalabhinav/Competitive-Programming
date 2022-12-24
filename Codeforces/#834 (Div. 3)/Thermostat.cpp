@@ -13,7 +13,6 @@ int solve(){
     if (a == b) return 0;
     if (b > a) swap(a, b);
     
-
 	if (a - b >= x) return 1;
 	
 	if (b - x >= l or a + x <= r) return 2;

@@ -10,8 +10,13 @@ using namespace std;
 set <int> square;
 void precompile(){
 	for(int i = 1; i < 1000; ++i){
+<<<<<<< HEAD
 		square.insert(i * i);
 	}
+=======
+        square.insert(i * i);
+    }
+>>>>>>> da41d33 (Complete)
 }
 
 void __attribute__((constructor)) precompile();
