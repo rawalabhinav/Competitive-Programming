@@ -48,7 +48,6 @@ void solve(){
             
         }
     } cout << ans << '\n';
-    
 }
 
 signed main(){
