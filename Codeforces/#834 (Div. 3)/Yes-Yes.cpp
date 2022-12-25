@@ -14,7 +14,9 @@ string solve(){
     
     for(int i = 0, j = m[s[0]]; i < s.length(); ++i, ++j){
         if (s[i] != p[j % 3]) return "NO\n";
-    } return "YES\n"; 
+    } 
+    
+    return "YES\n"; 
 }
 
 signed main(){
