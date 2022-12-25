@@ -44,7 +44,7 @@ void solve(){
     }
     
     for(int& e: a) cout << e << ' ';
-	cout << '\n';   
+    cout << '\n';   
 }
 
 signed main(){
