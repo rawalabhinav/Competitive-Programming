@@ -20,7 +20,6 @@ int solve(){
 	if (r - b >= x and a - l >= x) return 3;
     
 	return -1;
-	
 }
 
 signed main(){
