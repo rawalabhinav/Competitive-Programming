@@ -29,7 +29,6 @@ void solve(){
 			
 			else break;
 		}
-		
 		ans = max(ans, i);
 	} cout << ans << '\n';
 }
