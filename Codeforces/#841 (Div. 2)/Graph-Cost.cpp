@@ -20,6 +20,8 @@ void solve(){
         adj[v].push_back({v, w});  
     }
 
+    
+
 }
 
 signed main(){

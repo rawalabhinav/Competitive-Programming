@@ -8,9 +8,9 @@ using namespace std;
 #define int long long int
 
 void solve(){
-    int n; cin >> n;
+    int n, e; cin >> n;
 
-    int ans = 1, e;
+    int ans = 1;
     for(int  i = 0; i < n; ++i){
         cin >> e; ans *= e;
     }
