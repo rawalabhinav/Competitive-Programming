@@ -14,7 +14,6 @@ void solve(){
     for(int  i = 0; i < n; ++i){
         cin >> e; ans *= e;
     }
-
     cout << (ans + (n - 1) ) * 2022 << '\n';
 }
 

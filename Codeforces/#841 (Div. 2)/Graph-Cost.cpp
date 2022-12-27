@@ -19,9 +19,6 @@ void solve(){
         adj[u].push_back({u, w});
         adj[v].push_back({v, w});  
     }
-
-    
-
 }
 
 signed main(){

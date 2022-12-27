@@ -10,7 +10,6 @@ const int mod = 1e9 + 7;
 
 void solve(){
     int n; cin >> n;
-
     int s = ((n * n) % mod + n) % mod;
     cout << ((( s * (4 * n - 1)) % mod) * 337 ) % mod <<'\n';
 }
