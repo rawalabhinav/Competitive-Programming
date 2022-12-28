@@ -8,10 +8,9 @@ using namespace std;
 #define int long long int
 
 void solve(){
-    int n, p; cin >> n >> p;
+    int n; cin >> n;
 
-    int a[n];
-    for(int& e: a) cin >> e;
+    cout << n + (n / 2 + n / 3) * 2 << '\n';
 }
 
 signed main(){
