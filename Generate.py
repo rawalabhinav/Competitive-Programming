@@ -1,11 +1,17 @@
 from random import randrange as rand
+from math import gcd
 
-# n = rand(1, 10)
-# print(n)
-# for i in range(n) :
-#     print(rand(1,8), end=' ')
 
-x = 0
-for i in range(1, 12):
-    x =  x  ^ i
-    print(x)
+n = rand(1,10)
+
+# print(n, m)
+# for i in range(n):
+#     for j in range(m):
+#         print(rand(2,6), end=" ")
+#     print()
+
+
+
+
+
+ 
