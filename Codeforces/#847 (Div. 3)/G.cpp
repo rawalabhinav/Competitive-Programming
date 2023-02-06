@@ -21,7 +21,7 @@ void solve(){
     }
 
     int u, v;
-    for(int  i = 0; i < m; ++i){
+    for(int i = 0; i < m; ++i){
 
     }
 }
