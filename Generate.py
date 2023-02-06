@@ -1,14 +1,20 @@
 from random import randrange as rand
 from math import gcd
 
+n = rand(3,8)
+c = [[] for i in range(n)] 
 
-n = rand(1,10)
+for i in range(n):
+    k = rand(1,9)
 
-# print(n, m)
-# for i in range(n):
-#     for j in range(m):
-#         print(rand(2,6), end=" ")
-#     print()
+    for j in range(k):
+        c[i].append(rand(1,10))
+
+print(n)
+for x in c:
+    print(*set(x))
+
+
 
 
 
