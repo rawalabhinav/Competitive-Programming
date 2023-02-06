@@ -37,11 +37,7 @@ int solve(){
     if (j < 0){
         put += (!s.count(1)); s.insert(1); 
     }   
-<<<<<<< HEAD
     
-=======
-
->>>>>>> da41d33 (Complete)
     for(int i = a[n - 1] - 1; i > -1; --i){
         if (!s.count(i)) return p - a[n - 1] + i;
     }
