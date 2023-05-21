@@ -17,7 +17,7 @@ void solve(){
     for(int i = 1; i < n; ++i){
         cin >> u >> v;
 
-        adj[u].emplace_back(v);
+        adj[u].emplace_back(v);  
         adj[v].emplace_back(u);
     }
 }

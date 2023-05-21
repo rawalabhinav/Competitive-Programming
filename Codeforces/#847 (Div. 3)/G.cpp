@@ -20,10 +20,16 @@ void solve(){
         cin >> x; bon[x] = 1;
     }
 
-    int u, v;
-    for(int i = 0; i < m; ++i){
+    vector <vector <int> adj(n + 1);
+    for(int u, v, i = 0; i < m; ++i){
+        cin >> u >> v;
 
+        adj[u].emplace_back(v);
+        adj[v].emplace_back(u);
     }
+
+    
+
 }
 
 signed main(){

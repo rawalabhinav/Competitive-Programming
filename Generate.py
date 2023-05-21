@@ -1,23 +1,12 @@
-from random import randrange as rand
-from math import gcd
+from random import randrange as rand, shuffle as shuff
+from math import gcd, log2
 
-n = rand(3,8)
-c = [[] for i in range(n)] 
-
-for i in range(n):
-    k = rand(1,9)
-
-    for j in range(k):
-        c[i].append(rand(1,10))
+n = rand(3, 10)
+a = [rand(2, 103) for i in range(n)]
 
 print(n)
-for x in c:
-    print(*set(x))
+print(*(a))
 
 
 
 
-
-
-
- 
