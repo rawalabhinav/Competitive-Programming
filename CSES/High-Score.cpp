@@ -6,62 +6,44 @@ using namespace std;
 #endif
 
 #define int long long int
-const int INF = 1000000000;
 
 int n, m;
-vector <vector <pair <int, int>>> adj;
-vector <int> d;
+vector <vector <int>> adj;
+vector <int> vis, node;
 
-bool spfa(int s) {
-    d.assign(n, INF);
-    vector <int> cnt(n, 0);
-    vector <bool> inqueue(n, false);
-    queue <int> q;
-
-    d[s] = 0;
-    q.push(s);
-    inqueue[s] = true;
-    while (!q.empty()) {
-        int v = q.front();
-        q.pop();
-        inqueue[v] = false;
-
-        for (auto edge : adj[v]) {
-            int to = edge.first;
-            int len = edge.second;
-
-            if (d[v] + len < d[to]) {
-                d[to] = d[v] + len;
-
-                if (!inqueue[to]) {
-                    q.push(to);
-                    inqueue[to] = true;
-                    cnt[to]++;
-                    if (cnt[to] > n)return false;  // negative cycle
-                }
-            }
+void dfs(int u, int p){
+    if (vis[u]) {
+        for(; p != u; p = vis[p]){
+            node.emplace_back(p);
         }
+
+        cout << node.size() + 2 << '\n' << u << ' ';
+        for(int& e: node) cout << e << ' ';
+        cout << u; exit(0);
     }
-    return true;
+
+    vis[u] = p;
+    for(int& v: adj[u]){
+        if (v != vis[u]) dfs(v, u);
+    }
 }
 
 void solve(){
     cin >> n >> m;
 
-    int u, v, x;
-    adj.resize(n);
+    adj.resize(n + 1), vis.resize(n + 1);
+    for(int u, v, i = 0; i < m; ++i){
+        cin >> u >> v;
 
-    for(int i = 0; i < m; ++i){
-        cin >> u >> v >>  x;
+        adj[u].emplace_back(v);
+        adj[v].emplace_back(u);
+    }
 
-        adj[u - 1].push_back({v - 1, -x});
+    for(int i = 1; i <= n; ++i){
+        if (!vis[i]) dfs(i, i);
     }
-    
-    if (spfa(0)){
-        cout << -d[n - 1];
-    } else {
-        cout << "-1";
-    }
+
+    cout << "IMPOSSIBLE";
 }
 
 signed main(){
