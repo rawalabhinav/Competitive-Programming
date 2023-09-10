@@ -12,7 +12,7 @@ vector <vector <int>> adj;
 void solve(){
     int n, m; cin >> n >> m;
 
-    int sup[n + 1]{}; sup[0] = 1;
+    int sup[n + 1]{}; 
     for(int u, v, i = 0; i < m; ++i){
         cin >> u >> v;
         sup[v] = u;
@@ -25,7 +25,7 @@ void solve(){
         }
     }
 
-    cout << (freq > 1 ? -1 : maxi ) ;
+    cout << (freq > 1 ? -1 : maxi );
 }
 
 signed main(){

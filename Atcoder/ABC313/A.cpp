@@ -8,25 +8,22 @@ using namespace std;
 #define int long long int
 
 void solve(){
-    int n; cin >> n;
+    int n, freq = 0; cin >> n;
 
     int a[n];
     for(int& e: a) cin >> e;
 
-    int p = a[0], m = *max_element(a, a + n);
-    if (p < m){
-        cout << m - p + 1 << '\n';
+    int m = *max_element(a, a + n);
+    if (a[0] < m){
+        cout << a[0] - p + 1 << '\n';
         return;
     }
 
-    int freq = 0;
     for(int i = 0; i < n; ++i){
-        if (a[i] == p) ++freq;
+        if (a[i] == a[0]) ++freq;
     }
 
-    cout << ((freq > 1) ? 1 : 0) << '\n';
-
-
+    cout << (freq > 1)  << '\n';
 }
 
 signed main(){
