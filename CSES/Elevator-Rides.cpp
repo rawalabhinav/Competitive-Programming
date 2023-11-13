@@ -5,52 +5,37 @@ using namespace std;
     #include <Collections/debug.h>
 #endif
 
-#define int long long int
-/* x < w[i] implies we need a new elevator ride
-
-Information our mask has:
-    1. Number of people left with their resp weights
-    … O(logn)
-    2. ̐How many elevator rides there have been already
-    … O(n)
-*/
-
-int n, global_x;
-vector <int> w, dp;
-
-int calls = 0;
-
-int f(int mask, int x){
-    if (x < 0) return n + 1;
-    if (calls++ > 1e5) {
-        cout << "hello";
-        debug(dp);
-        exit(0);
-    }
-    if (dp[mask] <= n) return dp[mask];
-    for(int i = 0; i < n; ++i){
-        if ((1 << i) & mask) continue;
-
-        if (w[i] > x){
-            for(; i < n; ++i) dp[mask] = min(dp[mask], 1 + f(mask ^ (1 << i), global_x - w[i]));
-            break;
-        } 
-         
-        dp[mask] = min(dp[mask], f(mask ^ (1 << i), x - w[i]));
-    } 
-
-    return dp[mask];
-}
-
 void solve(){
-    cin >> n >> global_x;
+    int n, x; cin >> n >> x;
+    int weight[n];
 
-    w.resize(n), dp.assign((1 << n), n + 1);
-    for(int&e: w) cin >> e;
+    array <int, 2> best[1 << n];
+    for(int& e: weight) cin >> e;
 
-    sort(w.begin(), w.end());
-    cout << f(0, global_x);
-    
+    best[0] = {1, 0};
+    for (int s = 1; s < (1 << n); s++) {
+        best[s] = {n, 0};
+
+        for (int p = 0; p < n; ++p) {
+            if (s & (1 << p)) {
+                auto [rides, small] = best[s ^ (1 << p)];
+
+                // add p to an the smallest weighted ride
+                // or reserve a new ride for p
+                if (small + weight[p] <= x) {
+                    small += weight[p];
+                } else {
+                    ++rides;
+                    small = weight[p];
+                }
+
+                best[s] = min(best[s], {rides, small});
+            }
+        }
+    }
+
+    cout << best[(1 << n) - 1][0];
+
 }
 
 signed main(){
