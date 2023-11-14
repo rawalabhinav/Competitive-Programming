@@ -18,7 +18,7 @@ void solve(){
         cin >> u >> v >> w; w = -w;
     }
 
-    for(int i = 1; i < n; ++i){
+    for(int i = 0; i < n; ++i){
         for(auto& [u, v, w]: edge){
             if (d[u] != inf && d[u] + w < d[v]){
                 d[v] = d[u] + w;
@@ -26,7 +26,7 @@ void solve(){
         }
     }
 
-    for(int i = 1; i < n; ++i){
+    for(int i = 0; i < n; ++i){
         for(auto& [u, v, w]: edge){
             if (d[u] != inf && d[u] + w < d[v]){
                 d[v] = -inf;
