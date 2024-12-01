@@ -11,15 +11,16 @@ void solve() {
     int n, queries, k = 30;
     cin >> n >> queries;
 
-    vector <vector <int>> ancestor(n + 1, vector <int>(k, -1));
+    int ancestor[n + 1][k];
+    memset(ancestor, -1, sizeof(ancestor));
 
     for (int v, u = 1; u <= n; ++u) {
         cin >> v;
         ancestor[u][0] = v;
     }
 
-    for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j < k; ++j) {
+    for (int j = 1; j < k; ++j) {
+        for (int i = 1; i <= n; ++i) {
             ancestor[i][j] = ancestor[i][j - 1] == -1
                 ? -1
                 : ancestor[ancestor[i][j - 1]][j - 1];
@@ -37,7 +38,6 @@ void solve() {
 
         cout << res << '\n';
     }
-
 }
 
 signed main() {
